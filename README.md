@@ -5,8 +5,8 @@ AutoChirp is an AI-powered tweet automation system that tracks and responds to t
 ## Features
 - **Tracks tweets** from specific accounts in real-time.
 - **Uses Grok AI** for intelligent responses.
-- **Automates posting** using Puppeteer.
-- **Integrates with Apple’s automation system** via nut.js.
+- **Automates tracking x accounts** using Puppeteer.
+- **Integrates with Apple’s automation system** via nut.js for response posting.
 - **Manages a queue system** to handle multiple tweets efficiently.
 - **Logs errors and bot activities** for debugging.
 
