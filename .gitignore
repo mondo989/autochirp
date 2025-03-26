@@ -1,0 +1,58 @@
+# .gitignore for AutoChirp
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log
+output.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+
+# Compiled files
+dist/
+build/
+coverage/
+
+# Cache files
+.cache/
+.nyc_output/
+*.tsbuildinfo
+
+# Puppeteer & Nut.js generated files
+screenshots/
+captures/
+grok_output_image.png
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Logs from Telegram API errors
+telegram_errors.log
+
+# AutoChirp Bot Data
+data/
+sessions/
+.queue/

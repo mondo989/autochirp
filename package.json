@@ -1,0 +1,33 @@
+{
+  "name": "autochirp",
+  "version": "1.0.0",
+  "description": "A Telegram bot that automates fetching and posting tweets using Puppeteer, Nut.js, and OCR.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "@nut-tree-fork/nut-js": "latest", 
+    "node-cron": "latest",
+    "puppeteer": "^19.0.0",
+    "fs": "latest",
+    "telegraf": "latest",
+    "puppeteer-extra-plugin-stealth": "latest",
+    "puppeteer-extra": "latest",
+    "tesseract.js": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "mondo989",
+  "license": "MIT"
+}
