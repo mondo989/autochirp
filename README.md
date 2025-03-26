@@ -1,13 +1,13 @@
 # AutoChirp
 
-AutoChirp is an automated tweet processing and response system that integrates with Telegram and Slack. It tracks tweets, processes them using AI (Grok/OpenAI), and posts responses automatically.
+AutoChirp is an AI-powered tweet automation system that tracks and responds to tweets using Grok AI. It automates responses using **Grok AI** and **nut.js** (Apple system automation), and utilizes **Puppeteer** to post responses directly to tweets.
 
 ## Features
 - **Tracks tweets** from specific accounts in real-time.
-- **Uses OpenAI/Grok AI** for intelligent responses.
+- **Uses Grok AI** for intelligent responses.
+- **Automates posting** using Puppeteer.
+- **Integrates with Apple’s automation system** via nut.js.
 - **Manages a queue system** to handle multiple tweets efficiently.
-- **Sends responses via Telegram and Slack** integration.
-- **Supports Puppeteer** for tweet scraping.
 - **Logs errors and bot activities** for debugging.
 
 ## Table of Contents
@@ -25,7 +25,6 @@ AutoChirp is an automated tweet processing and response system that integrates w
 - **Node.js** (v18+ recommended)
 - **npm** or **yarn**
 - **A Telegram bot token**
-- **OpenAI API key** (optional, for AI-generated responses)
 
 ### Clone the Repository
 ```bash
@@ -44,8 +43,7 @@ npm install
 Create a `.env` file in the root directory and add the following variables:
 ```env
 TELEGRAM_BOT_TOKEN=your-telegram-bot-token
-SLACK_BOT_TOKEN=your-slack-bot-token
-OPENAI_API_KEY=your-openai-api-key
+CHAT_ID=your-telegram-chat-id
 ```
 
 ## Usage
@@ -107,6 +105,7 @@ autoChirp/
 | Variable Name       | Description                         |
 |---------------------|-------------------------------------|
 | `TELEGRAM_BOT_TOKEN` | Your Telegram bot API token       |
+| `CHAT_ID`          | The chat ID for Telegram responses |
 
 ## Logging
 - Logs are stored in the `logs/` directory.
