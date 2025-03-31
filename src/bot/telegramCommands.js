@@ -9,6 +9,39 @@ const localStorage = require('../utils/localStorage');
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
+// **/timeout Command: Sets bot to timeout mode**
+bot.command('timeout', async (ctx) => {
+    try {
+        const messageText = ctx.message.text.replace('/timeout', '').trim();
+        const hours = parseInt(messageText);
+
+        if (!hours || isNaN(hours) || hours <= 0) {
+            return ctx.reply('Usage: /timeout <hours>\nExample: /timeout 2');
+        }
+
+        localStorage.setTimeoutState(hours);
+        ctx.reply(`Bot is now in timeout mode for ${hours} hours. Use /wake to wake me up early.`);
+    } catch (error) {
+        console.error('Error setting timeout:', error);
+        ctx.reply('Failed to set timeout.');
+    }
+});
+
+// **/wake Command: Wakes bot from timeout mode**
+bot.command('wake', async (ctx) => {
+    try {
+        if (!localStorage.isInTimeout()) {
+            return ctx.reply('I am already awake!');
+        }
+
+        localStorage.clearTimeoutState();
+        ctx.reply('I am awake and ready to handle commands again!');
+    } catch (error) {
+        console.error('Error waking bot:', error);
+        ctx.reply('Failed to wake bot.');
+    }
+});
+
 // **/context Command: Stores or Updates Context**
 bot.command('context', async (ctx) => {
     try {
@@ -29,6 +62,14 @@ bot.command('context', async (ctx) => {
 // **Handles both old logic and URL-only input**
 bot.on('text', async (ctx) => {
     try {
+        // Check if bot is in timeout mode
+        if (localStorage.isInTimeout()) {
+            const remainingHours = localStorage.getRemainingTimeoutHours();
+            if (ctx.message.text !== '/wake') {
+                return ctx.reply(`zzzzz (${remainingHours} hours remaining)`);
+            }
+        }
+
         const messageText = ctx.message.text.trim();
 
         // **Case 3: URL-Only Input**
